@@ -99,6 +99,7 @@ button {
 
 .benefitsContainer {
     display: flex;
+    justify-content: space-evenly;
 }
 
 .striked {
@@ -108,8 +109,8 @@ button {
 /* Root -> Benfits -> RightBar -> Level */
 .rightBar {
     /* width: 50%; */
-    position: absolute;
-    right: 7%;
+    /* position: absolute; */
+    /* right: 15%; */
 }
 
 /* Root -> Benfits -> Level */
@@ -222,6 +223,7 @@ button {
 
 
 .skillTreeContainer {
+    /* left: 15%; */
     text-align: left;
     /* background: radial-gradient(circle, #ffffff, #bebdb1); */
 
@@ -235,6 +237,7 @@ button {
 }
 
 .skillTreeTable td {
+
     /* border: 1px solid black; */
 
     text-align: center;
