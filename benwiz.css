@@ -11,12 +11,12 @@
 
 @font-face {
     font-family: "Inter";
-    src: url("Inter_18pt-Regular.ttf");
+    src: url("assets/fonts/Inter_18pt-Regular.ttf");
 }
 
 @font-face {
     font-family: "Manrope";
-    src: url("Manrope-Medium.ttf");
+    src: url("assets/fonts/Manrope-Medium.ttf");
 }
 
 * {
@@ -107,6 +107,7 @@ button {
 
 /* Root -> Benfits -> RightBar -> Level */
 .rightBar {
+    /* width: 50%; */
     position: absolute;
     right: 7%;
 }
@@ -115,10 +116,10 @@ button {
 
 .topbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     background-color: var(--dark-blue-button);
-    padding: 20px 20px;
+    padding: 20px 0px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
@@ -175,7 +176,7 @@ button {
     }
 
     50% {
-        transform: scale(1.2);
+        transform: scale(1.5);
     }
 }
 
@@ -245,30 +246,204 @@ button {
 
 }
 
-.cellContainer div {
-    text-align: center;
+
+.skillName {
+    position: relative;
+    z-index: 100;
 }
 
 .skill {
+    position: relative;
     /* border: 1px solid red; */
     padding: 0;
     margin: 0;
-    border: none;
-    background: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    top: 0px;
+    left: 0px;
+    border: 5px solid var(--component-background);
     cursor: pointer;
-    overflow: hidden;
-    /* Для улучшения UX */
-    transition: background-color 0.2s ease, transform 0.2s ease;
+    overflow: visible;
     border-radius: 50%;
 }
 
+.skillContainer {
+    overflow: visible;
+    text-align: center;
+    position: relative;
+    overflow: visible;
+}
+
 .skill:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+
+
+
+/* .skill:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+} */
+
+.skill.initiallyLearned {
+    position: relative;
+    border: 5px solid #ffc107;
+    /* Ярко-жёлтая рамка */
+    /* color: #856404; */
+    /* Тёмно-жёлтый текст */
+    /* font-weight: bold; */
+    /* Жирный текст */
+    /* box-shadow: 100 100 1px #ffc107; */
+    /* box-shadow: 100 100 50px #0a7a24; */
+    filter: drop-shadow(0 0 15px #ffc107);
+    /* Жёлтое свечение */
+    /* overflow: hidden; */
+    overflow: visible;
 }
+
+
+/* Выученные навыки */
+.skill.learned {
+    position: relative;
+    /* background-color: #fff3cd; */
+    /* Светло-жёлтый фон */
+    border: 5px solid #ffc107;
+    /* Ярко-жёлтая рамка */
+    /* color: #856404; */
+    /* Тёмно-жёлтый текст */
+    /* font-weight: bold; */
+    /* Жирный текст */
+    /* box-shadow: 100 100 1px #ffc107; */
+    /* box-shadow: 100 100 50px #0a7a24; */
+    filter: drop-shadow(0 0 15px #ffc107);
+    /* Жёлтое свечение */
+    /* overflow: hidden; */
+    overflow: visible;
+
+    /* Для ограничения псевдоэлементов */
+    transition:
+        border 1.5s linear,
+        transform 0.3s ease opacity 0.3s ease,
+        filter 0.3s ease;
+    /* animation: glow 0.5s ease-in-out; */
+    /* z-index: 1 */
+}
+
+.skill.learned::before {
+    /* .skill::before { */
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    /* width: 200px; */
+    height: 100%;
+    /* height: 200px; */
+    /* scale: 150%; */
+    /* transform: scale(1.1); */
+    clip-path: polygon(100% 50%, 79.74% 53.92%, 98.3% 62.94%, 77.72% 61.48%, 93.3% 75%, 73.8% 68.26%, 85.36% 85.36%, 68.26% 73.8%, 75% 93.3%, 61.48% 77.72%, 62.94% 98.3%, 53.92% 79.74%, 50% 100%, 46.08% 79.74%, 37.06% 98.3%, 38.52% 77.72%, 25% 93.3%, 31.74% 73.8%, 14.64% 85.36%, 26.2% 68.26%, 6.7% 75%, 22.28% 61.48%, 1.7% 62.94%, 20.26% 53.92%, 0% 50%, 20.26% 46.08%, 1.7% 37.06%, 22.28% 38.52%, 6.7% 25%, 26.2% 31.74%, 14.64% 14.64%, 31.74% 26.2%, 25% 6.7%, 38.52% 22.28%, 37.06% 1.7%, 46.08% 20.26%, 50% 0%, 53.92% 20.26%, 62.94% 1.7%, 61.48% 22.28%, 75% 6.7%, 68.26% 26.2%, 85.36% 14.64%, 73.8% 31.74%, 93.3% 25%, 77.72% 38.52%, 98.3% 37.06%, 79.74% 46.08%, 100% 50%, 79.74% 53.92%, calc(79.74% - 1.78px) calc(53.92% - 0.23px), calc(100% - 3px) calc(50% - 0px), calc(79.74% - 1.78px) calc(46.08% - -0.23px), calc(98.3% - 2.9px) calc(37.06% - -0.78px), calc(77.72% - 1.66px) calc(38.52% - -0.69px), calc(93.3% - 2.6px) calc(25% - -1.5px), calc(73.8% - 1.43px) calc(31.74% - -1.1px), calc(85.36% - 2.12px) calc(14.64% - -2.12px), calc(68.26% - 1.1px) calc(26.2% - -1.43px), calc(75% - 1.5px) calc(6.7% - -2.6px), calc(61.48% - 0.69px) calc(22.28% - -1.66px), calc(62.94% - 0.78px) calc(1.7% - -2.9px), calc(53.92% - 0.23px) calc(20.26% - -1.78px), calc(50% - 0px) calc(0% - -3px), calc(46.08% - -0.23px) calc(20.26% - -1.78px), calc(37.06% - -0.78px) calc(1.7% - -2.9px), calc(38.52% - -0.69px) calc(22.28% - -1.66px), calc(25% - -1.5px) calc(6.7% - -2.6px), calc(31.74% - -1.1px) calc(26.2% - -1.43px), calc(14.64% - -2.12px) calc(14.64% - -2.12px), calc(26.2% - -1.43px) calc(31.74% - -1.1px), calc(6.7% - -2.6px) calc(25% - -1.5px), calc(22.28% - -1.66px) calc(38.52% - -0.69px), calc(1.7% - -2.9px) calc(37.06% - -0.78px), calc(20.26% - -1.78px) calc(46.08% - -0.23px), calc(0% - -3px) calc(50% - 0px), calc(20.26% - -1.78px) calc(53.92% - 0.23px), calc(1.7% - -2.9px) calc(62.94% - 0.78px), calc(22.28% - -1.66px) calc(61.48% - 0.69px), calc(6.7% - -2.6px) calc(75% - 1.5px), calc(26.2% - -1.43px) calc(68.26% - 1.1px), calc(14.64% - -2.12px) calc(85.36% - 2.12px), calc(31.74% - -1.1px) calc(73.8% - 1.43px), calc(25% - -1.5px) calc(93.3% - 2.6px), calc(38.52% - -0.69px) calc(77.72% - 1.66px), calc(37.06% - -0.78px) calc(98.3% - 2.9px), calc(46.08% - -0.23px) calc(79.74% - 1.78px), calc(50% - 0px) calc(100% - 3px), calc(53.92% - 0.23px) calc(79.74% - 1.78px), calc(62.94% - 0.78px) calc(98.3% - 2.9px), calc(61.48% - 0.69px) calc(77.72% - 1.66px), calc(75% - 1.5px) calc(93.3% - 2.6px), calc(68.26% - 1.1px) calc(73.8% - 1.43px), calc(85.36% - 2.12px) calc(85.36% - 2.12px), calc(73.8% - 1.43px) calc(68.26% - 1.1px), calc(93.3% - 2.6px) calc(75% - 1.5px), calc(77.72% - 1.66px) calc(61.48% - 0.69px), calc(98.3% - 2.9px) calc(62.94% - 0.78px), calc(79.74% - 1.78px) calc(53.92% - 0.23px), calc(100% - 3px) calc(50% - 0px));
+    background: #ce9f11;
+    scale: 150%;
+    aspect-ratio: 1;
+    opacity: 0;
+    /* transform: scale(2); */
+    animation: learned 3s ease;
+}
+
+@keyframes learned {
+
+    0% {
+        transform: scale(0.5);
+        rotate: 0deg;
+        opacity: 0;
+    }
+
+
+    25% {
+        transform: scale(1.5);
+        rotate: 0deg;
+        opacity: 1;
+    }
+
+    75% {
+        transform: scale(1.5);
+        rotate: 360deg;
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        rotate: 360deg;
+        opacity: 0;
+    }
+
+}
+
+
+/* .skill.learned::after {
+    animation-delay: 0.5s;
+} */
+
+/* .skill.learned:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease; */
+/* Увеличение при наведении */
+/* box-shadow: 0 0 20px rgba(255, 193, 7, 1); */
+/* Усиленное свечение */
+/* cursor: pointer; */
+/* } */
+
+
+
+
+/* @keyframes glow {
+    0% {
+        box-shadow: 0 0 10px red;
+    }
+
+    50% {
+        box-shadow: 0 0 50px red;
+    }
+
+    100% {
+        box-shadow: 0 0 10px red;
+    }
+} */
+
+
+
+
+.skill.locked {
+    /*  */
+    opacity: 0.6;
+    /* opacity: 1; */
+    /* box-shadow: none; */
+    /* filter: grayscale(10%); */
+    /* filter: drop-shadow(0px 0px 10px black); */
+    filter: contrast(0.8) grayscale(1);
+    transition: opacity 0.3s, transform 0.3s, filter 0.2s;
+}
+
+/* Заблокированные навыки при наведении */
+.skill.locked:hover {
+    opacity: 0.85;
+    filter: contrast(1), grayscale(0.5);
+    /* filter: contrast(1); */
+    /* transform: none; */
+}
+
+.skill.selected {
+    /* border-color: black; */
+    /* border-style: dashed; */
+    filter: drop-shadow(0 0 10px var(--dark-blue-button));
+    /* background-color: var(--dark-yellow); */
+}
+
+/* background-color: #ffeeba; */
+/* border-color: #ffc107; */
+/* box-shadow: 0 0 10px rgba(255, 193, 7, 0.6); */
+/* transform: scale(1.05); */
+/* } */
 
 .icon {
     /* display: inline-block; */
@@ -284,100 +459,46 @@ button {
 }
 
 
-
-.skill.acquired {
-    background-color: #c3e6cb;
-    /* Светло-зелёный фон */
-    border-color: #28a745;
-    /* Ярко-зелёная рамка */
-    color: #155724;
-    /* Тёмно-зелёный текст */
-    box-shadow: 0 0 15px rgba(40, 167, 69, 0.8);
-    /* Яркое зелёное свечение */
-    font-weight: bold;
-    /* Более жирный текст */
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.skill.acquired:hover {
-    transform: scale(1.1);
-    /* Увеличение кнопки */
-    box-shadow: 0 0 20px rgba(40, 167, 69, 1);
-    /* Усиление свечения */
-    cursor: pointer;
-}
-
-/* Выученные навыки */
-.skill.learned {
-    background-color: #fff3cd;
-    /* Светло-жёлтый фон */
-    border: 2px solid #ffc107;
-    /* Ярко-жёлтая рамка */
-    color: #856404;
-    /* Тёмно-жёлтый текст */
-    font-weight: bold;
-    /* Жирный текст */
-    box-shadow: 0 0 15px rgba(255, 193, 7, 0.8);
-    /* Жёлтое свечение */
-    overflow: hidden;
-    /* Для ограничения псевдоэлементов */
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.skill.learned:hover {
-    transform: scale(1.1);
-    /* Увеличение при наведении */
-    box-shadow: 0 0 20px rgba(255, 193, 7, 1);
-    /* Усиленное свечение */
-    cursor: pointer;
-}
-
-
-
-.skill.locked {
-
-    opacity: 0.7;
-    box-shadow: none;
-    filter: contrast(0.7);
-    transition: opacity 0.2s, transform 0.2s, filter 0.2s;
-}
-
-/* Заблокированные навыки при наведении */
-.skill.locked:hover {
-    filter: contrast(1);
-    transform: none;
-}
-
-.skill.selected {
-    background-color: #ffeeba;
-    border-color: #ffc107;
-    box-shadow: 0 0 10px rgba(255, 193, 7, 0.6);
-    transform: scale(1.05);
-}
-
 /* Root -> Benfits -> Skills -> EffectsList */
 .effectsList {
+    /* width: 75%; */
     flex: 1;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 15px;
+    /* padding: 5px; */
     overflow-y: auto;
     max-height: 300px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    /* justify-content:  */
+    /* justify-content: center; */
 }
 
 .effectsList ul {
-    padding-left: 20px;
-    flex-wrap: wrap;
-    gap: 10px;
+    /* display: flex; */
+    /* Используем Flexbox для контейнера списка */
+    /* flex-direction: column; */
+    /* Размещаем элементы списка по вертикали */
+    /* align-items: left; */
+    /* Центрируем элементы списка по горизонтали */
+    /* border: 1px solid #ccc; */
+    /* padding-left: 10px; */
+    /* gap: 10px; */
+    /* justify-content: center; */
+    /* Центрируем элементы списка по вертикали */
 }
 
 .effectsList li {
     list-style-type: disc;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     display: list-item;
-
+    /* list-style-position: inside; */
+    /* list-style-position: outside; */
+    /* width: 100%; */
+    /* Заставляем элементы списка занимать всю ширину контейнера */
+    /* text-align: center; */
+    /* Центрируем текст внутри элементов списка */
 }
 
 /* Root -> Benfits -> Skills -> RightBar -> ExtraInfo */
@@ -392,7 +513,7 @@ button {
 .skillDescription {
     right: 0px;
     transform: translateX(0);
-    width: 350px;
+    width: 250px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -578,12 +699,54 @@ button {
 
 .bill {
     height: fit-content;
+    position: relative;
     /* border: 1px solid #ddd; */
     /* padding: 20px; */
     /* background: #f9f9f9; */
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     transition: width 0.3s ease;
+    /* overflow: visible; */
     /* Лёгкая тень */
+}
+
+.floatingBonus {
+    position: absolute;
+    padding: 10px;
+    left: 370px;
+    top: 0px;
+    color: white;
+    background: green;
+    animation: floatUp 2s linear;
+    border-radius: 50%;
+}
+
+@keyframes floatUp {
+    0% {
+        top: 200px;
+        left: 170px;
+    }
+
+    /* 25% {
+        top: 150px;
+        left: 340px;
+    }
+
+    50% {
+        top: 100px;
+        left: 350px;
+    }
+
+    75% {
+        top: 50px;
+        left: 360px;
+        opacity: 1;
+    } */
+
+    100% {
+        top: 0px;
+        left: 170px;
+        opacity: 0;
+    }
 }
 
 .billContent {
@@ -762,7 +925,9 @@ button {
     gap: 10px;
 } */
 
-/* .payBtn {} */
+.payBtn {
+    background-color: #45a049;
+}
 
 .payBtn:hover {
     background-color: #45a049;
