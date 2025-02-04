@@ -34,8 +34,13 @@ h1 {
 h2 {
     font-family: "Manrope";
     text-align: center;
+    padding: 10px;
 }
 
+h4 {
+    font-family: "Manrope";
+    text-align: center;
+}
 
 button {
     background-color: var(--dark-blue-button);
@@ -197,7 +202,7 @@ button {
     font-size: 1.2rem;
     font-weight: bold;
     color: var(--dark-yellow);
-    transform: translateY(40%) translateX(25%);
+    transform: translateY(40%);
 }
 
 /* 
@@ -479,21 +484,13 @@ button {
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
-    /* padding: 5px; */
+    padding: 10px;
     overflow-y: auto;
     max-height: 300px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
     /* justify-content:  */
     /* justify-content: center; */
-}
-
-.effectsList h4 {
-    font-family: "Manrope";
-    font-size: 12px;
-    text-align: center;
-    width: 65%;
-    margin: 0 auto;
 }
 
 .effectsList ul {
@@ -534,7 +531,8 @@ button {
 .skillDescription {
     right: 0px;
     transform: translateX(0);
-    width: 300px;
+    /* width: 300px; */
+    width: 100%;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -546,7 +544,7 @@ button {
 
 .skillDescription.hidden {
     /* right: */
-    transform: translateX(120%);
+    transform: translateX(110%);
 }
 
 .skillDescription h3 {
