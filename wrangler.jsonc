@@ -1,0 +1,14 @@
+{
+  // Статический сайт деплоится как assets-only Worker: без скрипта.
+  // Запросы к ассетам бесплатны и не расходуют лимит запусков Worker'а.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "quickspell",
+  "compatibility_date": "2026-10-12",
+  "assets": {
+    "directory": "./",
+    // auto-trailing-slash отдаёт чистые URL без .html — /support -> support.html,
+    // как в canonical всех страниц.
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}
